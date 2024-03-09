@@ -1,6 +1,6 @@
 self.addEventListener("push", (e) => {
 	var options = {
-		body: "This notification was generated from a push!",
+		body: "I'm your doctor, please be careful!",
 		icon: "images/example.png",
 		vibrate: [125, 75, 125],
 		data: {

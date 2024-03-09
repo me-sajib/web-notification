@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>web push</title>
+	</head>
+	<body>
+		<button onclick="subscribe()">Subscribe</button>
+		<script>
+			addEventListener("load", async () => {
+				let sw = await navigator.serviceWorker.register("/sw.js");
+				console.log(sw);
+			});
+
+			async function subscribe() {
+				let sw = await navigator.serviceWorker.ready;
+				let subscription = await sw.pushManager.subscribe({
+					userVisibleOnly: true,
+					applicationServerKey:
+						"BFUHn0jwlqeKQdPzHS_XbPd_-RZ_m33IEeGZ2o8zcbdOPfE28HQLBqKgHf3dZm0XKlPN0LcA_x7cFCejDpPapr0",
+				});
+				console.log(subscription);
+			}
+		</script>
+		<script src="sw.js"></script>
+	</body>
+</html>
